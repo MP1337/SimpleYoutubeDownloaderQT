@@ -16,7 +16,7 @@ class AppWindow(QMainWindow):
 
     def initUI(self):
         uic.loadUi('app.ui', self)
-        self.show()
+        
         #Buttons
         buttonBrowse = self.findChild(QPushButton, 'buttonBrowse')
         buttonBrowse.clicked.connect(self.buttonBrowseHandler)
@@ -52,6 +52,8 @@ class AppWindow(QMainWindow):
         self.pbar  = self.findChild(QProgressBar)
         self.pbar.setValue(0)
 
+        self.show()
+
 ################################################################################################
 
     def buttonBrowseHandler(self):
@@ -79,14 +81,13 @@ class AppWindow(QMainWindow):
             ytdown.streams.first().download(self.editTarget.text())
             self.listWidget.addItem(ytdown.title)
             self.download_finished()
-        except:
-            print(ex)
+        except pytube.exceptions.PytubeError as err:
+            print(err)
         
     
     def progress_function(self, stream, chunk, bytes_remaining):
         percent = round((1-bytes_remaining/stream.filesize)*100)
-        if( percent%1 == 0):
-            self.pbar.setValue(percent)            
+        self.pbar.setValue(percent)            
 
     def download_finished(self):
         QMessageBox.information(self, "Download Completed", "YouTube download completed!")
@@ -97,9 +98,12 @@ class AppWindow(QMainWindow):
     def actionCloseHandler(self):
         QApplication.instance().quit()
 
-################################################################################################
-
-if __name__ == '__main__':
+def main():
     app = QApplication(sys.argv)
     ex = AppWindow()
     sys.exit(app.exec_())
+
+################################################################################################
+
+if __name__ == '__main__':
+    main()
