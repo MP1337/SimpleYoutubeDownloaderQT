@@ -1,11 +1,12 @@
 from PyQt5.QtGui import QIcon, QPixmap
-from PyQt5 import uic, QtWidgets
-from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox, QAction
+from PyQt5 import uic
+from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox, QAction, QPushButton, QLabel,QLineEdit, \
+                            QProgressBar,QFileDialog, QStyleFactory, QListWidget
 import clipboard
 import pytube
-import urllib.request  
+from urllib import request
 import sys
-import os
+from os import getcwd
 
 class AppWindow(QMainWindow):
 
@@ -17,41 +18,44 @@ class AppWindow(QMainWindow):
         uic.loadUi('app.ui', self)
         self.show()
         #Buttons
-        buttonBrowse = self.findChild(QtWidgets.QPushButton, 'buttonBrowse')
+        buttonBrowse = self.findChild(QPushButton, 'buttonBrowse')
         buttonBrowse.clicked.connect(self.buttonBrowseHandler)
 
-        buttonPaste = self.findChild(QtWidgets.QPushButton, 'buttonPaste')
+        buttonPaste = self.findChild(QPushButton, 'buttonPaste')
         buttonPaste.clicked.connect(self.buttonPasteHandler)
 
-        buttonDownload = self.findChild(QtWidgets.QPushButton, 'buttonDownload')
+        buttonDownload = self.findChild(QPushButton, 'buttonDownload')
         buttonDownload.clicked.connect(self.buttonDownloadHandler)
 
-        actionInfo = self.findChild(QtWidgets.QAction, 'actionInfo')
+        actionInfo = self.findChild(QAction, 'actionInfo')
         actionInfo.triggered.connect(self.actionInfoHandler)
 
-        actionClose = self.findChild(QtWidgets.QAction, 'actionClose')
+        actionClose = self.findChild(QAction, 'actionClose')
         actionClose.triggered.connect(self.actionCloseHandler)
 
+        #list Widget
+        self.listWidget = self.findChild(QListWidget, 'listWidget')
+
         #Labels
-        self.labelVideo = self.findChild(QtWidgets.QLabel, 'labelVideo')
-        self.labelImage = self.findChild(QtWidgets.QLabel, 'labelImage')
+        self.labelVideo = self.findChild(QLabel, 'labelVideo')
+        self.labelImage = self.findChild(QLabel, 'labelImage')
         img = QPixmap("default_thumb.jpg")
         self.labelImage.setPixmap(img)
 
         #QlineEdits
-        self.editTarget  = self.findChild(QtWidgets.QLineEdit, 'editTarget')
-        self.editTarget.setText(os.getcwd())
+        self.editTarget  = self.findChild(QLineEdit, 'editTarget')
+        self.editTarget.setText(getcwd())
 
-        self.editLink = self.findChild(QtWidgets.QLineEdit, 'editLink')
+        self.editLink = self.findChild(QLineEdit, 'editLink')
 
         #Progressbar
-        self.pbar  = self.findChild(QtWidgets.QProgressBar)
+        self.pbar  = self.findChild(QProgressBar)
         self.pbar.setValue(0)
 
 ################################################################################################
 
     def buttonBrowseHandler(self):
-        filename = str(QtWidgets.QFileDialog.getExistingDirectory(None))
+        filename = str(QFileDialog.getExistingDirectory(None))
         self.editTarget.setText(filename)
 
     def buttonPasteHandler(self):
@@ -59,18 +63,24 @@ class AppWindow(QMainWindow):
         self.editLink.setText(clip)
         clip = self.editLink.text()
         
-        if 'youtube' in clip:
+        if 'youtube' in clip and 'watch' in clip:
             yttitle = pytube.YouTube(clip)
             self.labelVideo.setText(yttitle.title)
             url = yttitle.thumbnail_url #url for thumbnail
-            urllib.request.urlretrieve(url,'thumb.jpg')
-            pixmap = QPixmap("thumb.jpg")
+            request.urlretrieve(url,'thumb.jpg')
+            pixmap = QPixmap("thumb.jpg").scaled(650,400)
             self.labelImage.setPixmap(pixmap)
+        else:
+            QMessageBox.about(self,"Warning", "No YouTube link!")
     
     def buttonDownloadHandler(self):
-        ytdown = pytube.YouTube(str(self.editLink.text()),on_progress_callback=self.progress_function)
-        ytdown.streams.first().download(self.editTarget.text())
-        self.download_finished()
+        try:
+            ytdown = pytube.YouTube(str(self.editLink.text()),on_progress_callback=self.progress_function)
+            ytdown.streams.first().download(self.editTarget.text())
+            self.listWidget.addItem(ytdown.title)
+            self.download_finished()
+        except:
+            print(ex)
         
     
     def progress_function(self, stream, chunk, bytes_remaining):
