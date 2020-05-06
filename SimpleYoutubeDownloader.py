@@ -7,6 +7,7 @@ import pytube
 from urllib import request
 import sys
 from os import getcwd
+#import pprint
 
 class AppWindow(QMainWindow):
 
@@ -16,41 +17,23 @@ class AppWindow(QMainWindow):
 
     def initUI(self):
         uic.loadUi('app.ui', self)
+
+        #print(self.__dict__)
         
         #Buttons
-        buttonBrowse = self.findChild(QPushButton, 'buttonBrowse')
-        buttonBrowse.clicked.connect(self.buttonBrowseHandler)
+        self.buttonBrowse.clicked.connect(self.buttonBrowseHandler)
+        self.buttonPaste.clicked.connect(self.buttonPasteHandler)
+        self.buttonDownload.clicked.connect(self.buttonDownloadHandler)
+        self.actionInfo.triggered.connect(self.actionInfoHandler)
+        self.actionClose.triggered.connect(self.actionCloseHandler)
 
-        buttonPaste = self.findChild(QPushButton, 'buttonPaste')
-        buttonPaste.clicked.connect(self.buttonPasteHandler)
-
-        buttonDownload = self.findChild(QPushButton, 'buttonDownload')
-        buttonDownload.clicked.connect(self.buttonDownloadHandler)
-
-        actionInfo = self.findChild(QAction, 'actionInfo')
-        actionInfo.triggered.connect(self.actionInfoHandler)
-
-        actionClose = self.findChild(QAction, 'actionClose')
-        actionClose.triggered.connect(self.actionCloseHandler)
-
-        #list Widget
-        self.listWidget = self.findChild(QListWidget, 'listWidget')
-
-        #Labels
-        self.labelVideo = self.findChild(QLabel, 'labelVideo')
-        self.labelImage = self.findChild(QLabel, 'labelImage')
         img = QPixmap("default_thumb.jpg")
         self.labelImage.setPixmap(img)
 
         #QlineEdits
-        self.editTarget  = self.findChild(QLineEdit, 'editTarget')
         self.editTarget.setText(getcwd())
-
-        self.editLink = self.findChild(QLineEdit, 'editLink')
-
         #Progressbar
-        self.pbar  = self.findChild(QProgressBar)
-        self.pbar.setValue(0)
+        self.progressBar.setValue(0)
 
         self.show()
 
@@ -87,7 +70,7 @@ class AppWindow(QMainWindow):
     
     def progress_function(self, stream, chunk, bytes_remaining):
         percent = round((1-bytes_remaining/stream.filesize)*100)
-        self.pbar.setValue(percent)            
+        self.progressBar.setValue(percent)            
 
     def download_finished(self):
         QMessageBox.information(self, "Download Completed", "YouTube download completed!")
