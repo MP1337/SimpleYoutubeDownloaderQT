@@ -48,13 +48,16 @@ class AppWindow(QMainWindow):
         self.editLink.setText(clip)
         clip = self.editLink.text()
         
-        if 'youtube' in clip and 'watch' in clip:
-            yttitle = pytube.YouTube(clip)
-            self.labelVideo.setText(yttitle.title)
-            url = yttitle.thumbnail_url #url for thumbnail
-            request.urlretrieve(url,'thumb.jpg')
-            pixmap = QPixmap("thumb.jpg").scaled(650,400)
-            self.labelImage.setPixmap(pixmap)
+        if 'youtu' in clip and 'watch' in clip or 'youtu.be' in clip:
+            try:
+                yttitle = pytube.YouTube(clip)
+                self.labelVideo.setText(yttitle.title)
+                url = yttitle.thumbnail_url #url for thumbnail
+                request.urlretrieve(url,'thumb.jpg')
+                pixmap = QPixmap("thumb.jpg").scaled(650,400)
+                self.labelImage.setPixmap(pixmap)
+            except pytube.exceptions.PytubeError as err:
+                print(err)
         else:
             QMessageBox.about(self,"Warning", "No YouTube link!")
     
