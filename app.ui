@@ -25,6 +25,444 @@
   <property name="windowTitle">
    <string>Simple Youtube Downloader</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">/*Copyright (c) DevSec Studio. All rights reserved.
+
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED *AS IS*, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+QWidget{
+	background-color: #FFFFFF;
+}
+
+/*-----QLabel-----*/
+QLabel
+{
+	background-color: transparent;
+	color: #000000;
+	border-color: #000000;
+
+}
+
+
+/*-----QMenuBar-----*/
+QMenuBar
+{
+	background-color: #2197f3;
+	color: #ffffff;
+	border-color: #000000;
+
+}
+
+
+QMenuBar::disabled
+{
+	background-color: #404040;
+	color: #656565;
+	border-color: #051a39;
+
+}
+
+
+QMenuBar::item
+{
+    background-color: transparent;
+
+}
+
+
+QMenuBar::item:selected
+{
+    background-color: #2197f3;
+	color: #FFFFFF;
+
+}
+
+
+QMenuBar::item:pressed
+{
+    background-color: #2197f3;
+    color: #FFFFFF;
+    border: 1px solid #000;
+    margin-bottom: -1px;
+    padding-bottom: 1px;
+
+}
+
+
+/*-----QMenu-----*/
+QMenu
+{
+    background-color: #dcdcdf;
+    border: 1px solid;
+    color: #000;
+
+}
+
+
+QMenu QWidget{
+	background-color: transparent;
+
+}
+
+
+QMenu::separator
+{
+    height: 1px;
+    background-color: #6d8eff;
+    color: #ffffff;
+    padding-left: 4px;
+    margin-left: 10px;
+    margin-right: 5px;
+
+}
+
+
+QMenu::item
+{
+    min-width : 150px;
+    padding: 3px 20px 3px 20px;
+
+}
+
+
+QMenu::item:selected
+{
+    background-color: #2197f3;
+    color: #FFFFFF;
+
+}
+
+
+QMenu::item:disabled
+{
+    color: #262626;
+
+}
+
+
+/*-----QToolBar-----*/
+QToolBar
+{
+	background-color: #217346;
+	color: #ffffff;
+	border-color: #000000;
+
+}
+
+
+/*-----QToolButton-----*/
+QToolButton
+{
+	background-color: #217346;
+	color: #ffffff;
+	border-color: #000000;
+
+}
+
+
+QToolButton::hover
+{
+	background-color: #f0f5f3;
+	color: #ffffff;
+	border: 1px solid #fff;
+
+}
+
+
+QToolButton::checked:hover
+{
+	background-color: #f0f5f3;
+	color: #ffffff;
+	border-color: #fff;
+
+}
+
+
+QToolButton::pressed
+{
+	background-color: #4070b3;
+	color: #ffffff;
+	border: 1px solid #fff;
+
+}
+
+
+QToolButton::checked
+{
+	background-color: #f0f5f3;
+	color: #ffffff;
+	border-color: #f0f5f3;
+	show-decoration-selected: 0;
+	outline: 0;
+
+}
+
+
+/*-----QToolTip-----*/
+QToolTip
+{
+    border: 1px solid black;
+    background-color: #217346;
+    border-radius: 0px;
+    color: #fff;
+}
+
+
+/*-----QLineEdit-----*/
+QLineEdit{
+	background-color: #fefffc;
+	color: #000;
+
+}
+
+
+/*-----QTextEdit-----*/
+QTableWidget{
+	background-color: #fff;
+	padding: 10px;
+	
+}
+
+
+/*-----QComboBox-----*/
+QComboBox
+{
+    background-color: #fefefe;
+    border: 1px solid #1e1e1e;
+    border-radius: 0px;
+    padding-left: 6px;
+    color: #000;
+    height: 20px;
+
+}
+
+
+QComboBox:on
+{
+	background-color: #fefefe;
+
+}
+
+
+QComboBox QAbstractItemView
+{
+    background-color: #dcdcdf;
+    color: #000;
+    border: 1px solid black;
+    selection-background-color: #217346;
+    selection-color: #dcdcdf;
+    outline: 0;
+
+}
+
+
+QComboBox::drop-down
+{
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 15px;
+    border-left-width: 0px;
+    border-left-color: darkgray;
+    border-left-style: solid; 
+    border-top-right-radius: 3px; 
+    border-bottom-right-radius: 3px;
+
+}
+
+
+QComboBox::down-arrow
+{
+	image: url(&quot;./ressources/down_arrow.png&quot;);
+	width:8px;
+	height:8px;
+
+}
+
+
+/*-----QSpinBox-----*/
+QSpinBox
+{
+    background-color: #fefefe;
+    border-width: 1px;
+    border-color: #1e1e1e;
+    border-style: solid;
+    color: #000;
+    padding: 2px;
+    selection-background-color: #4e4e8f;
+
+}
+
+
+QSpinBox::up-button, 
+QSpinBox::down-button
+{
+    background-color: #fefefe;
+
+}
+
+
+QSpinBox::up-button:hover, 
+QSpinBox::down-button:hover
+{
+    background-color: #fefefe;
+
+}
+
+
+QSpinBox::up-button:pressed, 
+QSpinBox::down-button:pressed
+{
+    background-color: #ebebeb;
+    border: 1px solid #ebebeb;
+
+}
+
+
+QSpinBox::down-arrow
+{
+    image: url(&quot;./ressources/down_arrow.png&quot;);
+    width: 7px;
+
+}
+
+
+QSpinBox::up-arrow
+{
+    image: url(&quot;./ressources/up_arrow.png&quot;);
+    width: 7px;
+
+}
+
+
+/*-----QSlider-----*/
+QSlider 
+{
+    background-color: transparent;
+    padding: 2px;
+
+}
+
+QSlider::groove:horizontal 
+{
+	subcontrol-origin: content;
+	background-color: transparent;
+	height: 15px;
+
+}
+
+QSlider::handle:horizontal 
+{
+    background-color: #217346;
+    width: 15px;
+    border-radius: 22px;
+
+}
+
+QSlider::sub-page:horizontal 
+{
+    background-color: #999;
+    margin: 5px;
+    border-radius: 5px;
+
+}
+
+QSlider::add-page:horizontal 
+{
+    background-color: #666;
+    margin: 5px;
+    border-radius: 5px;
+
+}
+
+
+/*-----QScrollBar-----*/
+QScrollBar:horizontal 
+{
+    background-color: #e8e5e9;
+	border: 1px solid darkgray;
+    height: 15px;
+
+}
+
+
+QScrollBar::handle:horizontal 
+{
+    border: 1px solid gray;
+	min-width: 100px;
+    background-color: #fffdff;
+
+}
+
+
+QScrollBar::add-line:horizontal, 
+QScrollBar::sub-line:horizontal,
+QScrollBar::add-page:horizontal, 
+QScrollBar::sub-page:horizontal 
+{
+    width: 0px;
+    background-color: transparent;
+
+}
+
+
+QScrollBar:vertical 
+{
+    background-color: #e8e5e9;
+	border: 1px solid darkgray;
+    width: 14px;
+
+}
+
+
+QScrollBar::handle:vertical 
+{
+    border: 1px solid gray;
+	min-height: 100px;
+    background-color: #fffdff;
+
+}
+
+
+QScrollBar::add-line:vertical, 
+QScrollBar::sub-line:vertical,
+QScrollBar::add-page:vertical, 
+QScrollBar::sub-page:vertical 
+{
+    height: 0px;
+    background-color: transparent;
+
+}
+
+
+/*-----QStatusBar-----*/
+QStatusBar
+{
+	background-color: #f5f3f3;
+	color: #000000;
+	border-color: #000000;
+
+}
+
+</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
@@ -36,12 +474,32 @@
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout_2">
+     <item row="6" column="0">
+      <widget class="QLineEdit" name="editTarget">
+       <property name="text">
+        <string>asdasdsad</string>
+       </property>
+      </widget>
+     </item>
      <item row="11" column="2">
       <widget class="QPushButton" name="buttonPaste">
        <property name="text">
         <string>Paste</string>
        </property>
       </widget>
+     </item>
+     <item row="6" column="2">
+      <widget class="QPushButton" name="buttonBrowse">
+       <property name="text">
+        <string>Browse</string>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="0">
+      <widget class="QLineEdit" name="editLink"/>
      </item>
      <item row="15" column="0">
       <widget class="QPushButton" name="buttonDownload">
@@ -57,84 +515,6 @@
       <widget class="Line" name="line_2">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-     </item>
-     <item row="12" column="0">
-      <widget class="QLabel" name="labelVideo">
-       <property name="font">
-        <font>
-         <weight>75</weight>
-         <bold>true</bold>
-         <underline>true</underline>
-        </font>
-       </property>
-       <property name="layoutDirection">
-        <enum>Qt::LeftToRight</enum>
-       </property>
-       <property name="text">
-        <string>Video Title</string>
-       </property>
-      </widget>
-     </item>
-     <item row="17" column="0">
-      <widget class="QLabel" name="labelHistory">
-       <property name="text">
-        <string>Download History</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="labelTitle">
-       <property name="font">
-        <font>
-         <pointsize>20</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Simple Youtube Downloader</string>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="0">
-      <widget class="QLabel" name="labelTarget">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="text">
-        <string>Target:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0">
-      <widget class="Line" name="line">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-     </item>
-     <item row="11" column="0">
-      <widget class="QLineEdit" name="editLink"/>
-     </item>
-     <item row="6" column="2">
-      <widget class="QPushButton" name="buttonBrowse">
-       <property name="text">
-        <string>Browse</string>
-       </property>
-       <property name="flat">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="6" column="0">
-      <widget class="QLineEdit" name="editTarget">
-       <property name="text">
-        <string>asdasdsad</string>
        </property>
       </widget>
      </item>
@@ -166,8 +546,463 @@
        </property>
       </widget>
      </item>
-     <item row="8" column="0">
-      <widget class="QLabel" name="labelLink">
+     <item row="12" column="0">
+      <widget class="QLabel" name="labelVideo">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+         <underline>true</underline>
+        </font>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">/*Copyright (c) DevSec Studio. All rights reserved.
+
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED *AS IS*, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+QWidget{
+	background-color: #FFFFFF;
+}
+
+/*-----QLabel-----*/
+QLabel
+{
+	background-color: transparent;
+	color: #000000;
+	border-color: #000000;
+
+}
+
+
+/*-----QMenuBar-----*/
+QMenuBar
+{
+	background-color: #2197f3;
+	color: #ffffff;
+	border-color: #000000;
+
+}
+
+
+QMenuBar::disabled
+{
+	background-color: #404040;
+	color: #656565;
+	border-color: #051a39;
+
+}
+
+
+QMenuBar::item
+{
+    background-color: transparent;
+
+}
+
+
+QMenuBar::item:selected
+{
+    background-color: #2197f3;
+	color: #FFFFFF;
+
+}
+
+
+QMenuBar::item:pressed
+{
+    background-color: #2197f3;
+    color: #FFFFFF;
+    border: 1px solid #000;
+    margin-bottom: -1px;
+    padding-bottom: 1px;
+
+}
+
+
+/*-----QMenu-----*/
+QMenu
+{
+    background-color: #dcdcdf;
+    border: 1px solid;
+    color: #000;
+
+}
+
+
+QMenu QWidget{
+	background-color: transparent;
+
+}
+
+
+QMenu::separator
+{
+    height: 1px;
+    background-color: #6d8eff;
+    color: #ffffff;
+    padding-left: 4px;
+    margin-left: 10px;
+    margin-right: 5px;
+
+}
+
+
+QMenu::item
+{
+    min-width : 150px;
+    padding: 3px 20px 3px 20px;
+
+}
+
+
+QMenu::item:selected
+{
+    background-color: #2197f3;
+    color: #FFFFFF;
+
+}
+
+
+QMenu::item:disabled
+{
+    color: #262626;
+
+}
+
+
+/*-----QToolBar-----*/
+QToolBar
+{
+	background-color: #217346;
+	color: #ffffff;
+	border-color: #000000;
+
+}
+
+
+/*-----QToolButton-----*/
+QToolButton
+{
+	background-color: #217346;
+	color: #ffffff;
+	border-color: #000000;
+
+}
+
+
+QToolButton::hover
+{
+	background-color: #f0f5f3;
+	color: #ffffff;
+	border: 1px solid #fff;
+
+}
+
+
+QToolButton::checked:hover
+{
+	background-color: #f0f5f3;
+	color: #ffffff;
+	border-color: #fff;
+
+}
+
+
+QToolButton::pressed
+{
+	background-color: #4070b3;
+	color: #ffffff;
+	border: 1px solid #fff;
+
+}
+
+
+QToolButton::checked
+{
+	background-color: #f0f5f3;
+	color: #ffffff;
+	border-color: #f0f5f3;
+	show-decoration-selected: 0;
+	outline: 0;
+
+}
+
+
+/*-----QToolTip-----*/
+QToolTip
+{
+    border: 1px solid black;
+    background-color: #217346;
+    border-radius: 0px;
+    color: #fff;
+}
+
+
+/*-----QLineEdit-----*/
+QLineEdit{
+	background-color: #fefffc;
+	color: #000;
+
+}
+
+
+/*-----QTextEdit-----*/
+QTableWidget{
+	background-color: #fff;
+	padding: 10px;
+	
+}
+
+
+/*-----QComboBox-----*/
+QComboBox
+{
+    background-color: #fefefe;
+    border: 1px solid #1e1e1e;
+    border-radius: 0px;
+    padding-left: 6px;
+    color: #000;
+    height: 20px;
+
+}
+
+
+QComboBox:on
+{
+	background-color: #fefefe;
+
+}
+
+
+QComboBox QAbstractItemView
+{
+    background-color: #dcdcdf;
+    color: #000;
+    border: 1px solid black;
+    selection-background-color: #217346;
+    selection-color: #dcdcdf;
+    outline: 0;
+
+}
+
+
+QComboBox::drop-down
+{
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 15px;
+    border-left-width: 0px;
+    border-left-color: darkgray;
+    border-left-style: solid; 
+    border-top-right-radius: 3px; 
+    border-bottom-right-radius: 3px;
+
+}
+
+
+QComboBox::down-arrow
+{
+	image: url(&quot;./ressources/down_arrow.png&quot;);
+	width:8px;
+	height:8px;
+
+}
+
+
+/*-----QSpinBox-----*/
+QSpinBox
+{
+    background-color: #fefefe;
+    border-width: 1px;
+    border-color: #1e1e1e;
+    border-style: solid;
+    color: #000;
+    padding: 2px;
+    selection-background-color: #4e4e8f;
+
+}
+
+
+QSpinBox::up-button, 
+QSpinBox::down-button
+{
+    background-color: #fefefe;
+
+}
+
+
+QSpinBox::up-button:hover, 
+QSpinBox::down-button:hover
+{
+    background-color: #fefefe;
+
+}
+
+
+QSpinBox::up-button:pressed, 
+QSpinBox::down-button:pressed
+{
+    background-color: #ebebeb;
+    border: 1px solid #ebebeb;
+
+}
+
+
+QSpinBox::down-arrow
+{
+    image: url(&quot;./ressources/down_arrow.png&quot;);
+    width: 7px;
+
+}
+
+
+QSpinBox::up-arrow
+{
+    image: url(&quot;./ressources/up_arrow.png&quot;);
+    width: 7px;
+
+}
+
+
+/*-----QSlider-----*/
+QSlider 
+{
+    background-color: transparent;
+    padding: 2px;
+
+}
+
+QSlider::groove:horizontal 
+{
+	subcontrol-origin: content;
+	background-color: transparent;
+	height: 15px;
+
+}
+
+QSlider::handle:horizontal 
+{
+    background-color: #217346;
+    width: 15px;
+    border-radius: 22px;
+
+}
+
+QSlider::sub-page:horizontal 
+{
+    background-color: #999;
+    margin: 5px;
+    border-radius: 5px;
+
+}
+
+QSlider::add-page:horizontal 
+{
+    background-color: #666;
+    margin: 5px;
+    border-radius: 5px;
+
+}
+
+
+/*-----QScrollBar-----*/
+QScrollBar:horizontal 
+{
+    background-color: #e8e5e9;
+	border: 1px solid darkgray;
+    height: 15px;
+
+}
+
+
+QScrollBar::handle:horizontal 
+{
+    border: 1px solid gray;
+	min-width: 100px;
+    background-color: #fffdff;
+
+}
+
+
+QScrollBar::add-line:horizontal, 
+QScrollBar::sub-line:horizontal,
+QScrollBar::add-page:horizontal, 
+QScrollBar::sub-page:horizontal 
+{
+    width: 0px;
+    background-color: transparent;
+
+}
+
+
+QScrollBar:vertical 
+{
+    background-color: #e8e5e9;
+	border: 1px solid darkgray;
+    width: 14px;
+
+}
+
+
+QScrollBar::handle:vertical 
+{
+    border: 1px solid gray;
+	min-height: 100px;
+    background-color: #fffdff;
+
+}
+
+
+QScrollBar::add-line:vertical, 
+QScrollBar::sub-line:vertical,
+QScrollBar::add-page:vertical, 
+QScrollBar::sub-page:vertical 
+{
+    height: 0px;
+    background-color: transparent;
+
+}
+
+
+/*-----QStatusBar-----*/
+QStatusBar
+{
+	background-color: #f5f3f3;
+	color: #000000;
+	border-color: #000000;
+
+}
+
+</string>
+       </property>
+       <property name="text">
+        <string>Video Title</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="labelTarget">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -175,7 +1010,21 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>Youtube link:</string>
+        <string>Target:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="labelTitle">
+       <property name="font">
+        <font>
+         <pointsize>20</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Simple Youtube Downloader</string>
        </property>
       </widget>
      </item>
@@ -198,10 +1047,37 @@
        </property>
       </widget>
      </item>
+     <item row="17" column="0">
+      <widget class="QLabel" name="labelHistory">
+       <property name="text">
+        <string>Download History</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="Line" name="line">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
      <item row="20" column="0">
       <widget class="Line" name="line_3">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="0">
+      <widget class="QLabel" name="labelLink">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Youtube link:</string>
        </property>
       </widget>
      </item>
@@ -248,7 +1124,7 @@
      <x>0</x>
      <y>0</y>
      <width>742</width>
-     <height>22</height>
+     <height>23</height>
     </rect>
    </property>
    <property name="sizePolicy">
