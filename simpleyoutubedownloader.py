@@ -1,8 +1,8 @@
 # Simple Youtube Downloader
-#V ersion: 1.0
-#A uthor: Peter Mazela
-#C ontact: info@elix-it.de
-"""Youtube Downloader"""
+# Version: 1.0
+# Author: Peter Mazela
+# Contact: info@elix-it.de
+"""Simple Youtube Downloader"""
 from PyQt5.QtGui import QPixmap
 from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow, QApplication, QMessageBox, QAction, QPushButton,\
@@ -33,8 +33,6 @@ class AppWindow(QMainWindow):
 
     def initUI(self):
         uic.loadUi('app.ui', self)
-
-        # print(self.__dict__)
 
         # Buttons
         self.buttonBrowse.clicked.connect(self.buttonBrowseHandler)
@@ -99,9 +97,6 @@ class AppWindow(QMainWindow):
         self.pb.show()
         self.pb.update_progress_bar(percent)
 
-#thread1 = threading.Thread(target = fun1, args = (12, 10))
-#thread1.start()
-
     def download_finished(self):
         QMessageBox.information(
             self, "Download Completed", "YouTube download completed!")
@@ -112,18 +107,12 @@ class AppWindow(QMainWindow):
     def actionCloseHandler(self):
         QApplication.instance().quit()
 
-
-
-
+################################################################################################
 
 def main():
     app = QApplication(sys.argv)
     ex = AppWindow()
     sys.exit(app.exec_())
 
-################################################################################################
-
-
 if __name__ == '__main__':
-
-    main()
+     main()
